@@ -1,0 +1,44 @@
+import LoginPage from "@/page/login/LoginPage";
+import RegisterPage from "@/page/register/RegisterPage";
+import HomePage from "@/page/home/HomePage";
+import {
+  createHashRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import DashboardPage from "@/page/dahsboard/DashboardPage";
+import ProtectedRoute from "./ProtectedRoute";
+import PublicRouter from "./PublicRouter";
+import FormLink from "@/page/dahsboard/pages/FormLink";
+import ListLink from "@/page/dahsboard/pages/ListLink";
+
+const AppRouter = () => {
+  const routerApp = createHashRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={
+          <ProtectedRoute />
+        } >
+          <Route path="/dash" element={<DashboardPage />}>
+            <Route index path="form" element={<FormLink />} />
+            <Route path="list" element={<ListLink />} />
+
+          </Route>
+        </Route>
+
+        <Route path="/auth" element={
+          <PublicRouter />
+        } >
+          <Route path="login" element={<LoginPage />} />
+        </Route>
+
+        <Route path="/register" element={<RegisterPage />} />
+      </>,
+    ),
+  );
+
+  return <RouterProvider router={routerApp} />;
+};
+export default AppRouter;
