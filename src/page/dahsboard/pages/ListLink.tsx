@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft, Trash2 } from "lucide-react";
+import { ChevronLeft, Files, Trash2 } from "lucide-react";
 
 import { db } from "@/lib/firebase";
 import { useAuth } from "@/hooks/useAuth";
@@ -37,7 +37,6 @@ const ListLink = () => {
 
         setLinks(linksData);
       } catch (error) {
-        console.log("🚀 ~ fetchLinks ~ error:", error);
         catchError(error);
       }
     }
@@ -53,7 +52,7 @@ const ListLink = () => {
       <button className="top-5 right-5 absolute border-gray-300 dark:border-zinc-800 bg-white hover:dark:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-800 p-1 border rounded-md text-black dark:text-white transform transition duration-300 cursor-pointer ease-in-out group hover:scale-105" type="button" onClick={goListLink}>
         <ChevronLeft className="text-black dark:text-white size-6" />
       </button>
-      <div className="dark:border-zinc-800 opacity-0 px-6 py-16 border rounded-md w-full max-w-[1200px] animate-slide-up">
+      <div className="dark:border-zinc-800 opacity-0 px-6 py-16 border rounded-md w-full max-w-[1000px] animate-slide-up">
         <h2 className="mb-8 font-extrabold text-center text-pretty text-xl">
           Lista de Enlaces
         </h2>
@@ -61,9 +60,8 @@ const ListLink = () => {
           <TableHeader>
             <TableRow>
               <TableHead>Url</TableHead>
-              <TableHead className="w-[100px]">ShortUrl</TableHead>
               <TableHead>New Url</TableHead>
-              <TableHead className="text-right">Option</TableHead>
+              <TableHead className="text-left">Option</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -72,11 +70,13 @@ const ListLink = () => {
                 links.map((link) => (
                   <TableRow key={link.shortUrl}>
                     <TableCell>{link.url}</TableCell>
-                    <TableCell className="font-medium">{link.shortUrl}</TableCell>
                     <TableCell>{link.newUrl}</TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="flex gap-2">
                       <button type="button" className="border-gray-300 dark:border-zinc-800 bg-white hover:dark:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-800 px-4 py-2 border rounded-md text-black dark:text-white transform transition duration-300 cursor-pointer ease-in-out group hover:scale-105">
                         <Trash2 className="h-5 text-red-400" />
+                      </button>
+                      <button type="button" className="border-gray-300 dark:border-zinc-800 bg-white hover:dark:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-800 px-4 py-2 border rounded-md text-black dark:text-white transform transition duration-300 cursor-pointer ease-in-out group hover:scale-105">
+                        <Files className="h-5 text-gray-400" />
                       </button>
                     </TableCell>
                   </TableRow>
