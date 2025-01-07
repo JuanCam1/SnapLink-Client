@@ -4,7 +4,7 @@ import { catchError } from "@/utils/catchError";
 import { generateNewUrl } from "@/utils/generateNewUrl";
 import { generateSlug } from "@/utils/generateSlug";
 import { notification } from "@/utils/notification";
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { type FormEvent, useState, type RefObject } from "react"
 
 const useLink = (formRef: RefObject<HTMLFormElement | null>) => {
@@ -33,7 +33,8 @@ const useLink = (formRef: RefObject<HTMLFormElement | null>) => {
       const newUrl = generateNewUrl(username, shortUrl);
 
 
-      await setDoc(doc(db, "link", creatorId), {
+      await addDoc(collection(db, "link",), {
+        creatorId: creatorId,
         url: url,
         newUrl: newUrl,
         shortUrl: shortUrl,

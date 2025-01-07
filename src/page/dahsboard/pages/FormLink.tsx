@@ -23,7 +23,7 @@ const FormLink = () => {
         <h1 className="mb-8 font-extrabold text-center text-pretty text-xl">
           Acortador de enlaces
         </h1>
-        <form onSubmit={createLink} className="flex flex-col gap-8 w-full">
+        <form ref={formRef} onSubmit={createLink} className="flex flex-col gap-8 w-full">
           <div className="flex flex-col gap-2">
             <Label htmlFor="url">Link url</Label>
             <Input name="url" id="url" type="text" placeholder="https://www.pagina.com" />
@@ -38,7 +38,7 @@ const FormLink = () => {
               {
                 loadingSubmit
                   ? (
-                    <Loading svgStyle="size-5" />
+                    <Loading svgStyle="size-5" contain="px-6" />
                   )
                   : (
                     <>
