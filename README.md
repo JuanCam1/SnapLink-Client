@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+<div align="center">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React Badge](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=flat)
+![Typescript Badge](https://img.shields.io/badge/Typescript-20232A?logo=typescript&logoColor=3178C6&style=flat)
+![TailwindCSS Badge](https://img.shields.io/badge/Tailwind_CSS-20232A?logo=tailwind-css&logoColor=38B2AC&style=flat)
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Stack
+- [**React**](https://es.react.dev/) - React es la biblioteca para interfaces de usuario web y nativas.
 
-- Configure the top-level `parserOptions` property like this:
+- [**Typescript**](https://www.typescriptlang.org/) - TypeScript extiende JavaScript agregando tipos al lenguaje.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- [**Tailwindcss**](https://tailwindcss.com/) - Un Marco CSS de utilidad para crear rápidamente diseños personalizados.
+
+- [**Biome**](https://biomejs.dev/) - Formateador y linter de código.
+
+- [**React Sonner**](https://sonner.emilkowal.ski/) - Componente de notificación para React.
+
+- [**Shadcn UI**](https://ui.shadcn.com/) - Una colección de componentes de interfaz de usuario de código abierto.
+
+- [**React Router Dom**](https://reactrouter.com/) - Manejador de rutas para React.
+
+
+
+## 🚀 Inicio
+
+Necesitas:
+
+- [Node.js 18+ ](https://nodejs.org/en/).
+- [Git](https://git-scm.com/).
+- [Bun](https://bun.sh/).
+
+1. [Fork](https://github.com/JuanCam1/SnapLink-Client.git) de este repositorio y clonarlo localmente:
+
+```bash
+git clone https://github.com/JuanCam1/SnapLink-Client.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Instala las dependencias:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+bun install
 ```
+
+3. Inicia el servidor de desarrollo:
+
+```bash
+bun run dev
+```
+'
