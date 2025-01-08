@@ -20,21 +20,19 @@ const RedirectPage = () => {
           const doc = querySnapshot.docs[0];
           const data = doc.data();
           const originalUrl = data.url;
-          console.log("🚀 ~ recoverLink ~ originalUrl:", originalUrl);
           window.location.href = originalUrl;
         }
       } catch (error) {
         navigate("/");
       }
-    }
+    };
     recoverLink();
-  }, [slug, navigate])
-
+  }, [slug, navigate]);
 
   return (
     <div className="flex justify-center items-center w-full h-screen">
       <Loading svgStyle="size-20" />
     </div>
-  )
-}
-export default RedirectPage
+  );
+};
+export default RedirectPage;

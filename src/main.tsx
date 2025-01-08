@@ -9,10 +9,10 @@ import "./index.css";
 const idRoot = document.getElementById("root") as HTMLElement;
 
 createRoot(idRoot).render(
-  <ThemeProvider defaultTheme="dark" storageKey="blog-ui-theme">
-    <AuthProvider>
-      <AppRouter />
-      <Toaster richColors position="top-right" expand={false} />
-    </AuthProvider>
-  </ThemeProvider>,
+	<ThemeProvider defaultTheme="dark" storageKey="blog-ui-theme">
+		<AuthProvider>
+			<AppRouter />
+			<Toaster richColors position="top-right" expand={false} />
+		</AuthProvider>
+	</ThemeProvider>,
 );

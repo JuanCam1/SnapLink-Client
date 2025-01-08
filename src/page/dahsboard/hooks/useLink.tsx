@@ -35,26 +35,24 @@ const useLink = (formRef: RefObject<HTMLFormElement | null>) => {
       const shortUrl = generateSlug(8);
       const newUrl = generateNewUrl(baseUrl, shortUrl);
 
-
-      await addDoc(collection(db, "link",), {
+      await addDoc(collection(db, "link"), {
         creatorId: creatorId,
         url: url,
         shortUrl: shortUrl,
         newUrl: newUrl,
         createdAt: new Date().toISOString(),
-      })
+      });
       setLoadingSubmit(false);
       notification("Enlace creado exitosamente", "success");
       formRef.current?.reset();
     } catch (error) {
-      console.log("🚀 ~ createLink ~ error:", error);
       setLoadingSubmit(false);
       catchError(error);
     }
-  }
+  };
   return {
     createLink,
-    loadingSubmit
-  }
-}
-export default useLink
+    loadingSubmit,
+  };
+};
+export default useLink;

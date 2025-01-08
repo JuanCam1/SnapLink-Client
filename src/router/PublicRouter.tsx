@@ -6,10 +6,15 @@ import { Navigate, Outlet } from "react-router-dom";
 const PublicRouter: FC = () => {
   const { user, loading } = useAuth();
 
-  if (loading) return <Loading contain="pt-40" svgStyle="size-20" />;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center w-full h-screen">
+        <Loading svgStyle="size-20" />
+      </div>
+    );
+  }
 
   if (user) return <Navigate to="/dash/form" />;
-  console.log("🚀 ~ PublicRouter ~ user:");
   return <Outlet />;
-}
-export default PublicRouter
+};
+export default PublicRouter;
