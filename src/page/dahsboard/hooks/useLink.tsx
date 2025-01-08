@@ -1,15 +1,19 @@
-import { useAuth } from "@/hooks/useAuth";
+import { type FormEvent, useState, type RefObject } from "react";
+import { addDoc, collection } from "firebase/firestore";
+
 import { db } from "@/lib/firebase";
+import { useAuth } from "@/hooks/useAuth";
 import { catchError } from "@/utils/catchError";
-import { generateNewUrl } from "@/utils/generateNewUrl";
 import { generateSlug } from "@/utils/generateSlug";
 import { notification } from "@/utils/notification";
-import { addDoc, collection } from "firebase/firestore";
-import { type FormEvent, useState, type RefObject } from "react"
+import { config } from "@/config/config";
+import { generateNewUrl } from "@/utils/generateNewUrl";
+
+const baseUrl = config.BASE_URL as string;
 
 const useLink = (formRef: RefObject<HTMLFormElement | null>) => {
   const [loadingSubmit, setLoadingSubmit] = useState(false);
-  const { user, userName } = useAuth();
+  const { user } = useAuth();
 
   const createLink = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -24,23 +28,23 @@ const useLink = (formRef: RefObject<HTMLFormElement | null>) => {
       }
 
       const creatorId = user?.uid;
-      const username = userName?.username;
 
-      if (!creatorId || !username) throw new Error("User not logged in");
+      if (!creatorId) throw new Error("User not logged in");
 
       setLoadingSubmit(true);
       const shortUrl = generateSlug(8);
-      const newUrl = generateNewUrl(username, shortUrl);
+      const newUrl = generateNewUrl(baseUrl, shortUrl);
 
 
       await addDoc(collection(db, "link",), {
         creatorId: creatorId,
         url: url,
-        newUrl: newUrl,
         shortUrl: shortUrl,
+        newUrl: newUrl,
         createdAt: new Date().toISOString(),
       })
       setLoadingSubmit(false);
+      notification("Enlace creado exitosamente", "success");
       formRef.current?.reset();
     } catch (error) {
       console.log("🚀 ~ createLink ~ error:", error);

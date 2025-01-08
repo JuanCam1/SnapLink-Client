@@ -2,7 +2,7 @@ import LoginPage from "@/page/login/LoginPage";
 import RegisterPage from "@/page/register/RegisterPage";
 import HomePage from "@/page/home/HomePage";
 import {
-  createHashRouter,
+  createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
@@ -12,16 +12,19 @@ import ProtectedRoute from "./ProtectedRoute";
 import PublicRouter from "./PublicRouter";
 import FormLink from "@/page/dahsboard/pages/FormLink";
 import ListLink from "@/page/dahsboard/pages/ListLink";
+import RedirectPage from "@/page/redirect/RedirectPage";
 
 const AppRouter = () => {
-  const routerApp = createHashRouter(
+  const routerApp = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path="/" element={<HomePage />} />
-        <Route path="/" element={
+        <Route path="/:slug" element={<RedirectPage />} />
+
+        <Route path="/dash" element={
           <ProtectedRoute />
         } >
-          <Route path="/dash" element={<DashboardPage />}>
+          <Route element={<DashboardPage />}>
             <Route index path="form" element={<FormLink />} />
             <Route path="list" element={<ListLink />} />
 

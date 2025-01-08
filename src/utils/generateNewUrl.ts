@@ -1,3 +1,3 @@
-export const generateNewUrl = (username: string, shortUrl: string) => {
-  return `https://${username}.co/${shortUrl}`;
+export const generateNewUrl = (url: string, shortUrl: string) => {
+  return `${url}/${shortUrl}`;
 }

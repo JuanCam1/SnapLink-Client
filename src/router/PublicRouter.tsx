@@ -9,7 +9,7 @@ const PublicRouter: FC = () => {
   if (loading) return <Loading contain="pt-40" svgStyle="size-20" />;
 
   if (user) return <Navigate to="/dash/form" />;
-
+  console.log("🚀 ~ PublicRouter ~ user:");
   return <Outlet />;
 }
 export default PublicRouter

@@ -5,6 +5,7 @@ import Loading from "@/components/shared/loading";
 
 const ProtectedRoute: FC = () => {
   const { user, loading } = useAuth();
+  console.log("🚀 ~ ProtectedRoute ~ user:");
 
   if (loading) return <Loading contain="py-20" svgStyle="size-20" />;
 
