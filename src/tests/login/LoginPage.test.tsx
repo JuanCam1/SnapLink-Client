@@ -2,8 +2,8 @@ import LoginPage from "@/page/login/LoginPage";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it } from "vitest";
-import userEvent from "@testing-library/user-event";
-const userTest = { email: 'mario@gmail.com', password: '12345' };
+// import userEvent from "@testing-library/user-event";
+// const userTest = { email: 'mario@gmail.com', password: '12345' };
 
 describe("LoginPage", () => {
   beforeEach(() => {
