@@ -39,6 +39,7 @@ const LoginPage = () => {
             </div>
             <div className="flex justify-center items-center gap-2 w-full">
               <button
+                data-testid="login-button"
                 disabled={loading}
                 type="submit"
                 className={`${loading ? "opacity-25" : ""} flex justify-center items-center gap-2 border-gray-300 dark:border-zinc-800 bg-white hover:dark:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-800 px-4 py-2 border rounded-md text-black dark:text-white transform transition duration-300 cursor-pointer ease-in-out group hover:scale-105`}
