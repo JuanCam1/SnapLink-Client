@@ -16,7 +16,7 @@ const RegisterPage = () => {
   return (
     <LayoutNavbar>
       <div className="flex flex-col justify-center items-center gap-6 w-full">
-        <div className="dark:border-zinc-800 opacity-0 px-6 py-6 border rounded-md w-full max-w-[500px] animate-slide-up">
+        <div className="max-sm:flex max-sm:flex-col max-sm:justify-center dark:border-zinc-800 opacity-0 px-6 py-6 border rounded-md w-full max-w-[500px] max-sm:h-full animate-slide-up">
           <h1 className="mb-8 font-extrabold text-center text-pretty text-xl">
             Registro SnapLink
           </h1>

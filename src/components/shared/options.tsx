@@ -2,8 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Github from "../svg/github";
 import ModeToggle from "./mode-toggle";
-import Search from "../svg/search";
 import { useAuth } from "@/hooks/useAuth";
+const githubUrl = "https://github.com/JuanCam1/SnapLink-Client.git";
 
 const Options = () => {
   const { logout } = useAuth();
@@ -13,7 +13,7 @@ const Options = () => {
       <ModeToggle />
       {!pathname.includes("dash") && (
         <Link
-          to="https://github.com/JuanCam1"
+          to={githubUrl}
           target="_blank"
           rel="noreferrer"
           className="flex justify-center items-center border-[0.5px] dark:border-zinc-800 bg-white hover:dark:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-800 hover:shadow-lg rounded-md w-9 dark:text-white transform transition-all duration-300 ease-in-out hover:scale-105"
@@ -21,12 +21,6 @@ const Options = () => {
           <Github className="text-black dark:text-white transition-colors duration-300 ease-in-out" />
         </Link>
       )}
-      <button
-        type="button"
-        className="flex justify-center items-center border-[0.5px] dark:border-zinc-800 bg-white hover:dark:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-800 hover:shadow-lg rounded-md w-9 dark:text-white transform transition-all duration-300 ease-in-out hover:scale-105"
-      >
-        <Search className="text-black dark:text-white" />
-      </button>
       {!pathname.includes("dash") ? (
         !pathname.includes("auth/login") && (
           <Link
