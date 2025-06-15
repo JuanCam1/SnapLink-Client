@@ -14,7 +14,7 @@ function App() {
           <LinkIcon className="size-12" />
           SnapLink
         </TypographyP>
-        <div className="opacity-0 font-extrabold text-4xl text-indigo-600  max-sm:text-center dark:text-indigo-500 animate-fade-up animate-ease-in animate-delay-300 flex items-center gap-2 lg:w-[70%]  flex-col ">
+        <div className="opacity-0 font-extrabold text-4xl text-indigo-600 text-center dark:text-indigo-500 animate-fade-up animate-ease-in animate-delay-300 flex items-center gap-2 lg:w-[70%]  flex-col ">
           Acorta tus enlaces de forma rápida y sencilla
           <TypographyP className=" text-center text-pretty font-medium text-xl dark:text-zinc-500 text-zinc-600">
             Crea enlaces cortos, rastrea clics y analiza el rendimiento de tus

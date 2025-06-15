@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Eye, EyeOff, Mail, UserRoundPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,9 +11,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
-import { Eye, EyeOff, LinkIcon, Mail, UserRoundPlus } from "lucide-react";
-import { useState } from "react";
 
 export const Route = createFileRoute("/auth/login")({
   component: RouteComponent,
@@ -47,7 +47,7 @@ function RouteComponent() {
   };
   return (
     <div className="flex-1 flex items-center justify-center p-4 w-full">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md opacity-0 animate-fade-right animate-ease-in">
         <Card>
           <CardHeader className="text-center">
             <CardTitle className="text-2xl text-indigo-500 font-bold">
@@ -116,10 +116,18 @@ function RouteComponent() {
             <div className="mt-8 text-center">
               <p className="text-sm text-gray-500">
                 ¿No tienes una cuenta?{" "}
-                <Link to="/auth/register" className="animate-border">
+                <Link
+                  to="/auth/register"
+                  className="animate-border text-indigo-500"
+                >
                   Regístrate aquí
                 </Link>
               </p>
+            </div>
+            <div className="mt-8 text-center">
+              <Link to="/home/dashboard" className="animate-border">
+                Home
+              </Link>
             </div>
           </CardContent>
         </Card>

@@ -14,8 +14,7 @@ const Navbar = () => {
             <span>SnapLink</span>
           </div>
         </Link>
-
-        <LinkNav pathname={pathname} />
+        {pathname.includes("home") ? <LinkNav pathname={pathname} /> : null}
 
         <Options pathname={pathname} />
       </div>

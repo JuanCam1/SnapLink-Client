@@ -13,7 +13,7 @@ const LinkNav: FC<Props> = ({ pathname }) => {
           <li key={label}>
             <Link
               to={path}
-              className="block py-2 px-3 text-white bg-indigo-700 rounded-sm md:bg-transparent md:text-indigo-700 md:p-0 md:dark:text-indigo-500"
+              className={`animate-border hover:text-indigo-600 block py-2 px-3 rounded-sm  md:p-0 ${pathname === path ? "text-indigo-600" : "text-zinc-700 "} `}
               aria-current="page"
             >
               {label}
