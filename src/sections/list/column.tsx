@@ -1,4 +1,17 @@
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Switch } from "@/components/ui/switch";
+import {
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@radix-ui/react-dropdown-menu";
 import type { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 
 export type Payment = {
   id: string;
@@ -26,7 +39,20 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "title",
-    header: "Title",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Titulo
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("title")}</div>
+    ),
   },
   {
     accessorKey: "description",
@@ -34,13 +60,13 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "isActive",
-    header: "Active",
-    cell: ({ row }) => (row.getValue("isActive") ? "Yes" : "No"),
+    header: "Estado",
+    cell: ({ row }) => <Switch checked={row.getValue("isActive")} />,
   },
   {
     accessorKey: "isPassword",
     header: "Password Protected",
-    cell: ({ row }) => (row.getValue("isPassword") ? "Yes" : "No"),
+    cell: ({ row }) => <Switch checked={row.getValue("isPassword")} />,
   },
   {
     accessorKey: "createdAt",
@@ -49,7 +75,30 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     id: "actions",
-    header: "Actions",
-    cell: () => <button>Edit</button>,
+    header: "Opciones",
+    enableHiding: false,
+    cell: ({ row }) => {
+      const payment = row.original;
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(payment.id)}
+            >
+              Copy payment ID
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem>View payment details</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    },
   },
 ];

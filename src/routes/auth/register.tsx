@@ -111,7 +111,7 @@ function RouteComponent() {
             <div className="mt-8 text-center">
               <p className="text-sm text-gray-500">
                 ¿Ya tienes cuenta?{" "}
-                <Link to="/auth/login" className="animate-border">
+                <Link to="/auth/login" className="animate-border text-cyan-500">
                   Inicia Sesión
                 </Link>
               </p>

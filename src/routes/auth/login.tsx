@@ -22,35 +22,13 @@ function RouteComponent() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // // Simular autenticación
-    // setTimeout(() => {
-    //   if (email && password) {
-    //     localStorage.setItem("isAuthenticated", "true")
-    //     localStorage.setItem("userEmail", email)
-    //     toast({
-    //       title: "¡Bienvenido!",
-    //       description: "Has iniciado sesión correctamente.",
-    //     })
-    //     router({
-    //       to: "/dashboard",
-    //       replace: true,
-    //     })
-    //   } else {
-    //     toast({
-    //       title: "Error",
-    //       description: "Por favor completa todos los campos.",
-    //       variant: "destructive",
-    //     })
-    //   }
-    // }, 1000)
   };
   return (
     <div className="flex-1 flex items-center justify-center p-4 w-full">
       <div className="w-full max-w-md opacity-0 animate-fade-right animate-ease-in">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-indigo-500 font-bold">
+            <CardTitle className="text-2xl text-cyan-500 font-bold">
               Iniciar Sesión
             </CardTitle>
             <CardDescription>
@@ -80,11 +58,11 @@ function RouteComponent() {
                 <Label htmlFor="password">Contraseña</Label>
                 <div className="flex ">
                   <button
+                    type="button"
+                    className="dark:bg-zinc-900 bg-zinc-200 inline-flex items-center px-2 text-sm text-gray-900 border border-e-0 rounded-s-sm cursor-pointer"
                     onClick={() => {
                       setIsVisible((prev) => !prev);
                     }}
-                    type="button"
-                    className="dark:bg-zinc-900 bg-zinc-200 inline-flex items-center px-2 text-sm text-gray-900 border border-e-0 rounded-s-sm cursor-pointer"
                   >
                     <div className="rounded-full  p-1">
                       {isVisible ? (
@@ -118,7 +96,7 @@ function RouteComponent() {
                 ¿No tienes una cuenta?{" "}
                 <Link
                   to="/auth/register"
-                  className="animate-border text-indigo-500"
+                  className="animate-border text-cyan-500"
                 >
                   Regístrate aquí
                 </Link>

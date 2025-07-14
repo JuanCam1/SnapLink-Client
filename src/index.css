@@ -143,15 +143,15 @@ code {
 }
 
 .color-text {
-  @apply text-indigo-500
+  @apply text-cyan-500
 }
 
 .color-btn {
-  @apply bg-indigo-600/80 hover:bg-indigo-600 text-white;
+  @apply bg-cyan-600/80 hover:bg-cyan-600 text-white;
 }
 
 .animate-border { 
-  @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-indigo-500 after:transition-all after:duration-300 hover:after:w-full  pb-1 px-1;
+  @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full  pb-1 px-1;
 }
 
 .CollapsibleContent[data-state="open"] {

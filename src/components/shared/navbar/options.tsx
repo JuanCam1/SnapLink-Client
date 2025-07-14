@@ -31,13 +31,13 @@ const Options: FC<Props> = ({ pathname }) => {
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 ">
       <ModeToggle />
       <a
         href="https://github.com/JuanCam1/CodeCraft.git"
         target="_blank"
         rel="noreferrer"
-        className="flex justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md w-9 border dark:border-gray-700"
+        className="flex max-sm:hidden justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md border dark:border-gray-700 w-10 h-10"
       >
         <LogoGithub className="text-black dark:text-white" />
       </a>
