@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 import LogoGithub from "../../svg/logo-github";
 import { ModeToggle } from "./mode-toggle";
 import {
@@ -10,9 +10,10 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useState, type FC } from "react";
 import { paths } from "@/const/paths";
+import { useTheme } from "@/context/theme-provider";
 
 interface Props {
   pathname: string;
@@ -20,6 +21,7 @@ interface Props {
 const Options: FC<Props> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   const handleNavigation = (path: string) => {
     setIsOpen(false);
@@ -37,10 +39,16 @@ const Options: FC<Props> = ({ pathname }) => {
         href="https://github.com/JuanCam1/CodeCraft.git"
         target="_blank"
         rel="noreferrer"
-        className="flex max-sm:hidden justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md border dark:border-gray-700 w-10 h-10"
+        className="flex  justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md border dark:border-gray-700 w-10 h-10"
       >
         <LogoGithub className="text-black dark:text-white" />
       </a>
+      <Link
+        to="/auth/login"
+        className="flex  justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md border dark:border-gray-700 w-10 h-10"
+      >
+        <LogOut color={theme === "dark" ? "white" : "black"} size={15} />
+      </Link>
 
       <div
         onClick={handleOpen}

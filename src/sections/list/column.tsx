@@ -1,17 +1,17 @@
+import type { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Switch } from "@/components/ui/switch";
 import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@radix-ui/react-dropdown-menu";
-import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 
 export type Payment = {
   id: string;
@@ -31,7 +31,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "originalUrl",
-    header: "Original URL",
+    header: "Link",
   },
   {
     accessorKey: "shortCode",
@@ -56,22 +56,37 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "description",
-    header: "Description",
+    header: "Descripción",
   },
   {
     accessorKey: "isActive",
     header: "Estado",
-    cell: ({ row }) => <Switch checked={row.getValue("isActive")} />,
+    cell: ({ row }) => (
+      <div className="flex items-center justify-center">
+        <Switch checked={row.getValue("isActive")} />
+      </div>
+    ),
   },
   {
     accessorKey: "isPassword",
-    header: "Password Protected",
-    cell: ({ row }) => <Switch checked={row.getValue("isPassword")} />,
+    header: "Protegida",
+    cell: ({ row }) => (
+      <div className="flex items-center justify-center">
+        <Switch checked={row.getValue("isPassword")} />
+      </div>
+    ),
   },
   {
     accessorKey: "createdAt",
-    header: "Created At",
-    cell: ({ row }) => new Date(row.getValue("createdAt")).toLocaleString(),
+    header: "Fecha de creación",
+    cell: ({ row }) => {
+      const fecha = new Date(row.getValue("createdAt"));
+      return fecha.toLocaleDateString("es-ES", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    },
   },
   {
     id: "actions",
@@ -80,24 +95,26 @@ export const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => {
       const payment = row.original;
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex justify-center items-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-8 w-8 p-0">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem
+                onClick={() => navigator.clipboard.writeText(payment.id)}
+              >
+                Copy payment ID
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>View customer</DropdownMenuItem>
+              <DropdownMenuItem>View payment details</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       );
     },
   },

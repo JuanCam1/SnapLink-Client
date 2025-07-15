@@ -1,6 +1,7 @@
 import { DataTable } from "@/sections/list/data-table";
 import { columns, type Payment } from "@/sections/list/column";
 import { createFileRoute } from "@tanstack/react-router";
+import TypographyH2 from "@/components/shared/h2";
 
 export const Route = createFileRoute("/home/list-link")({
   component: RouteComponent,
@@ -30,7 +31,11 @@ const data: Payment[] = [
 ];
 function RouteComponent() {
   return (
-    <div>
+    <div className="w-full flex flex-col gap-4 justify-center items-center">
+      <TypographyH2
+        text="Lista de enlaces"
+        className="text-4xl text-cyan-400 capitalize"
+      />
       <DataTable columns={columns} data={data} />
     </div>
   );

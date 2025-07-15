@@ -48,10 +48,10 @@ export function DataTable<TData, TValue>({
     },
   });
   return (
-    <div>
+    <div className="lg:w-[1200px] w-full ">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter title..."
+          placeholder="Bucar por título"
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
@@ -59,7 +59,7 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         />
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border ">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

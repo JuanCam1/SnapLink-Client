@@ -25,7 +25,7 @@ function RouteComponent() {
   };
   return (
     <div className="flex-1 flex items-center justify-center p-4 w-full">
-      <div className="w-full max-w-md opacity-0 animate-fade-right animate-ease-in">
+      <div className="w-full max-w-md opacity-0 animate-fade-down animate-ease-in">
         <Card>
           <CardHeader className="text-center">
             <CardTitle className="text-2xl text-cyan-500 font-bold">
