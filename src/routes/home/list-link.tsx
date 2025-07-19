@@ -31,7 +31,7 @@ const data: Payment[] = [
 ];
 function RouteComponent() {
   return (
-    <div className="w-full flex flex-col gap-4 justify-center items-center">
+    <div className="w-full flex flex-col gap-4 justify-center items-center  opacity-0 animate-fade-down animate-ease-in ">
       <TypographyH2
         text="Lista de enlaces"
         className="text-4xl text-cyan-400 capitalize"
