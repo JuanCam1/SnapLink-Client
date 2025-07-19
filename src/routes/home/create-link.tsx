@@ -40,7 +40,7 @@ function RouteComponent() {
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState<Date | undefined>(undefined);
   return (
-    <div className="flex-1 flex items-center justify-center p-4 w-full ">
+    <div className="flex-1 flex items-center justify-center w-full ">
       <div className="max-w-[1000px] w-full opacity-0 animate-fade-down animate-ease-in ">
         <Card>
           <CardHeader className="text-center">
@@ -51,7 +51,7 @@ function RouteComponent() {
           <CardContent>
             <form
               onSubmit={handleSubmit}
-              className="space-y-4 grid grid-cols-1 gap-4 md:grid-cols-2"
+              className="space-y-2 grid grid-cols-1 gap-4 md:grid-cols-2"
             >
               <div className="space-y-2 max-sm:col-span-2">
                 <Label htmlFor="title">Titulo</Label>
