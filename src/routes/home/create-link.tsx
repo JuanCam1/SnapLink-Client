@@ -88,17 +88,6 @@ function RouteComponent() {
                 />
               </div>
 
-              <div className="space-y-2 col-span-2">
-                <Label htmlFor="description">Descripción</Label>
-
-                <Textarea
-                  className="rounded-md block flex-1 min-w-0 w-full text-sm p-2.5 focus-visible:ring-0 focus-visible:border-input resize-none h-24"
-                  id="description"
-                  name="description"
-                  required
-                />
-              </div>
-
               <div className="space-y-2 max-sm:col-span-2">
                 <Label htmlFor="description">Expiración</Label>
 

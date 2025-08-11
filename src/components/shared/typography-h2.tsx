@@ -9,7 +9,7 @@ const TypographyH2: FC<Props> = ({ children, className }) => {
   return (
     <h2
       className={cn(
-        "text-3xl font-semibold tracking-tight dark:text-blue-500 text-blue-600",
+        "text-3xl font-semibold tracking-tight text-cyan-600 dark:text-cyan-400",
         className
       )}
     >

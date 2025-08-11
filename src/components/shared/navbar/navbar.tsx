@@ -9,7 +9,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-10 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 flex justify-center dark:bg-zinc-900">
       <div className="flex h-16 items-center justify-between w-full">
         <Link to="/">
-          <div className="flex items-center gap-2 font-bold text-3xl text-cyan-400">
+          <div className="flex items-center gap-2 font-bold text-3xl text-cyan-600 dark:text-cyan-400">
             <LinkIcon className="h-6 w-6 " />
             <span>SnapLink</span>
           </div>
