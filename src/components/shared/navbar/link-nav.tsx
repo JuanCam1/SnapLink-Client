@@ -8,7 +8,7 @@ interface Props {
 const LinkNav: FC<Props> = ({ pathname }) => {
   return (
     <div className="items-center justify-between  w-full md:flex md:w-auto max-sm:hidden">
-      <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+      <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row lg:mt-0 lg:border-0 max-md:hidden">
         {paths.map(({ label, path }) => (
           <li key={label}>
             <Link

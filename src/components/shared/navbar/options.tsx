@@ -45,14 +45,14 @@ const Options: FC<Props> = ({ pathname }) => {
       </a>
       <Link
         to="/auth/login"
-        className="flex  justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md border dark:border-gray-700 w-10 h-10"
+        className="max-md:hidden flex  justify-center items-center border-gray-200 bg-white hover:bg-neutral-100 hover:dark:bg-zinc-800 dark:bg-zinc-900 rounded-md border dark:border-gray-700 w-10 h-10"
       >
         <LogOut color={theme === "dark" ? "white" : "black"} size={15} />
       </Link>
 
       <div
         onClick={handleOpen}
-        className="sm:hidden flex items-center justify-center w-10 h-10 rounded-lg border bg-white text-gray-800 hover:bg-neutral-100 dark:bg-zinc-900 dark:border-zinc-700 dark:text-white hover:dark:bg-zinc-800 transition-colors"
+        className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border bg-white text-gray-800 hover:bg-neutral-100 dark:bg-zinc-900 dark:border-zinc-700 dark:text-white hover:dark:bg-zinc-800 transition-colors"
       >
         <Menu className="w-5 h-5" />
       </div>
@@ -68,20 +68,34 @@ const Options: FC<Props> = ({ pathname }) => {
               <div
                 key={path}
                 onClick={() => handleNavigation(path)}
-                className={`px-4 py-2 rounded-md cursor-pointer text-sm font-medium transition-colors hover:bg-indigo-200 ${
+                className={`px-4 py-2 rounded-md cursor-pointer text-sm font-medium transition-colors hover:bg-cyan-700 ${
                   pathname === path
-                    ? "bg-indigo-200  text-black dark:text-white"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-neutral-100 hover:dark:bg-zinc-800"
+                    ? "bg-cyan-600 text-white"
+                    : "text-gray-700 hover:text-white"
                 }`}
               >
                 {label}
               </div>
             ))}
+            <div
+              onClick={() => handleNavigation("/")}
+              className={`px-4 py-2 rounded-md cursor-pointer text-sm font-medium transition-colors hover:bg-cyan-700 ${
+                pathname === "/"
+                  ? "bg-cyan-600 text-white"
+                  : "text-gray-700 hover:text-white"
+              }`}
+            >
+              Cerrar sesión
+            </div>
           </div>
 
           <SheetFooter className="px-4 pb-4">
             <SheetClose asChild>
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full  hover:bg-cyan-700 hover:text-white cursor-pointer border
+               border-cyan-500 hover:border-cyan-700"
+              >
                 Cerrar
               </Button>
             </SheetClose>

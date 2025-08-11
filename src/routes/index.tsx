@@ -1,4 +1,4 @@
-import TypographyP from "@/components/shared/p";
+import TypographyP from "@/components/shared/typography-p";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LinkIcon } from "lucide-react";
 
