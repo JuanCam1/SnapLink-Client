@@ -4,7 +4,7 @@ export interface LinkModel {
   originalUrl: string;
   shortUrl: string;
   time: number;
-  password?: string;
+  password: string | null;
   userId: string;
   state: StateModel;
   createdAt: Date;
